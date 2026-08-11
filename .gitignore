@@ -1,0 +1,12 @@
+# Never let a credential into this repo. It is checked out on more than one machine.
+*.env
+.env*
+*secret*
+*token*
+*credential*
+*.key
+*.pem
+
+# Local-only overrides
+local/
+*.local.md

@@ -1,0 +1,59 @@
+---
+name: character-slug
+description: One line on WHEN to hand work to this character. A router reads this to pick between characters, so make it about the trigger, not the personality.
+model: inherit
+effort: high
+skills:
+  - skill-name
+playbooks:
+  - playbook-name
+---
+
+# <Character Name> - <role in four words or fewer>
+
+<!--
+HOW TO USE THIS TEMPLATE
+
+Fill in every section, then delete the comment blocks.
+
+PORTABILITY: the YAML frontmatter is Claude Code's agent format. Other tools ignore
+unknown keys and read the body as a system prompt, so every rule that MATTERS must
+appear in the body prose, not only in frontmatter. `skills:` and `playbooks:` are my
+own keys kept as a machine-readable index; the body restates them for the model.
+
+ROUTING: two independent dials, per COORDINATOR.md section 4.
+  model:  inherit | haiku ($1/$5, mechanical, NO effort support) | sonnet ($3/$15,
+          well-specified work) | opus ($5/$25, hard reasoning -- the ceiling; fable is
+          excluded as too expensive)
+  effort: low | medium | high (default) | xhigh | max. Omit entirely for haiku --
+          passing effort to Haiku 4.5 errors.
+Set these to the character's *typical* task. The coordinator can override per call.
+-->
+
+## Scope
+
+What this character owns. Two or three sentences.
+
+## Out of scope
+
+What it hands back rather than attempting. Be specific. This section is what stops a
+character from sprawling into a general assistant.
+
+## Skills
+
+| Skill | Use it when |
+|---|---|
+| `skill-name` | trigger condition |
+
+## Playbook
+
+The default loop. Reference a file in `playbooks/` instead of restating it here.
+
+## Operating rules
+
+Only what is genuinely different from `AGENTS.md`. Do not restate the global rules.
+
+## Done means
+
+The observable completion signal. Not "the code is written" but "the check passes and
+the report names every file touched."
