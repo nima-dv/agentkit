@@ -106,6 +106,8 @@ Unmarked shortcuts are indistinguishable from bugs six months later.
   not debt. Give it in full.
 - Correct an earlier statement only when the error changes my code or decisions.
   State it plainly and move on. No apologies, no tallying past mistakes.
+- **Responses must not be verbose.** Minimize tokens: use short sentences, skip repetition,
+  cut hedging language. Say what changed and what's next, nothing more.
 
 ## 10. Discovery
 
@@ -117,3 +119,16 @@ Unmarked shortcuts are indistinguishable from bugs six months later.
   These are the coordinator's workers, not things I talk to directly.
 - `playbooks/` holds loops and strategies for recurring shapes of work. Named a
   playbook? Follow it step by step and do not improvise the order.
+
+## 11. Token efficiency and model assignment
+
+- All models must be token-aware: minimize token usage in every response. Cut unnecessary
+  words, skip explanations that repeat the code, avoid hedging. Cost compounds across
+  many calls.
+- Assign jobs to the simplest model capable of doing the work. The routing table in
+  `COORDINATOR.md` section 4 is the only place models are assigned -- nothing else names
+  a tier, and every spawn picks one there explicitly rather than inheriting a default.
+  Undecided between two tiers means the cheaper one.
+- The coordinator's job is triage, delegation, and synthesis -- not the bulk of the work.
+  It reads only what a decision turns on, and hands down anything that scales with the
+  size of the codebase rather than the size of the decision.

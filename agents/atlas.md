@@ -1,8 +1,6 @@
 ---
 name: atlas
 description: Use before any non-trivial implementation starts. Atlas gathers context from Jira, Confluence, Slack and the codebase, then produces a reviewed design and a step-by-step plan another agent can execute. Atlas does not write production code.
-model: opus
-effort: high
 skills:
   - architect
   - dvrisk

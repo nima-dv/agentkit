@@ -47,18 +47,11 @@ Changes to `~\.claude\CLAUDE.md` and the junctions take effect at the next sessi
 
 ## Model routing
 
-| Tier | ID | In / Out per 1M | For |
-|---|---|---|---|
-| Opus 5 | `claude-opus-5` | $5 / $25 | The ceiling. Hard reasoning, ambiguity, expensive-to-get-wrong |
-| Sonnet 5 | `claude-sonnet-5` | $3 / $15 | Well-specified implementation |
-| Haiku 4.5 | `claude-haiku-4-5` | $1 / $5 | Mechanical and bounded. 200K context. No `effort` support |
-
-`effort` is `low` / `medium` / `high` / `xhigh` / `max`, orthogonal to tier, on Opus 5
-and Sonnet 5 only. Prefer lowering effort over lowering tier. Claude Fable 5 is out of
-scope: too expensive.
-
-Characters set their typical `model:` and `effort:` in frontmatter; the coordinator
-overrides per call. Full rules in `COORDINATOR.md`.
+The routing table in `COORDINATOR.md` section 4 is the single source of truth for which
+model runs what, and it is not duplicated here or anywhere else. In short: the
+coordinator is Opus 5, every worker is picked per task at the `Agent` call -- haiku when
+the task is well scoped and easy, sonnet when it needs judgment. Characters do not pin a
+model in frontmatter.
 
 ## Add a character
 
@@ -66,8 +59,8 @@ overrides per call. Full rules in `COORDINATOR.md`.
    become selectable agents.
 2. Pick skills from `SKILLS.md`. List them in frontmatter `skills:` and restate them in
    the body's Skills table with a trigger condition for each.
-3. Set `model:` and `effort:` for the character's typical task.
-4. Fill in **Out of scope** and **Done means**.
+3. Fill in **Out of scope** and **Done means**. Do not set `model:` or `effort:` -- the
+   coordinator picks those per task.
 
 `agents/atlas.md` and `agents/mercury.md` are worked examples. Mercury is the shape to
 copy for a character wrapping a large skill set: skills grouped by direction of work,

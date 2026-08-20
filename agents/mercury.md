@@ -1,8 +1,6 @@
 ---
 name: mercury
 description: Use for anything visual on the web: generating UI designs, extracting a design system from existing frontend code, or converting designs into React, React Native, or dashboard code. Owns the whole Stitch toolchain in both directions.
-model: sonnet
-effort: high
 skills:
   - stitch::generate-design
   - stitch::enhance-prompt

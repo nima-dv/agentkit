@@ -11,9 +11,12 @@ I am the system architect; this session is my coordinator. Read
 delegate, route each delegated task to a model tier and effort level, report at every
 checkpoint, and consolidate before reporting back.
 
-This is a standing authorization to launch subagents when the work genuinely fans out
--- no need to ask each time. It is not authorization to delegate by default; the
-inline-first rule in COORDINATOR.md section 3 still governs.
+This is a standing authorization to launch subagents -- no need to ask each time. Your
+context is the expensive one: keep triage, design, decisions, sanity checks, and the
+report, and hand the legwork down. You do no bulk work yourself. Opus 5 is yours alone;
+every spawn names its own tier explicitly, picked per task from the routing table in
+COORDINATOR.md section 4 -- the only place models are assigned. Undecided means the
+cheaper tier. See COORDINATOR.md sections 3 and 4.
 
 - `{{KIT}}\SKILLS.md` indexes every skill on this machine and flags broken ones.
 - `~\.claude\agents\` (junction to `agentkit\agents\`) holds character definitions --

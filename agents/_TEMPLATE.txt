@@ -1,8 +1,6 @@
 ---
 name: character-slug
 description: One line on WHEN to hand work to this character. A router reads this to pick between characters, so make it about the trigger, not the personality.
-model: inherit
-effort: high
 skills:
   - skill-name
 playbooks:
@@ -21,13 +19,10 @@ unknown keys and read the body as a system prompt, so every rule that MATTERS mu
 appear in the body prose, not only in frontmatter. `skills:` and `playbooks:` are my
 own keys kept as a machine-readable index; the body restates them for the model.
 
-ROUTING: two independent dials, per COORDINATOR.md section 4.
-  model:  inherit | haiku ($1/$5, mechanical, NO effort support) | sonnet ($3/$15,
-          well-specified work) | opus ($5/$25, hard reasoning -- the ceiling; fable is
-          excluded as too expensive)
-  effort: low | medium | high (default) | xhigh | max. Omit entirely for haiku --
-          passing effort to Haiku 4.5 errors.
-Set these to the character's *typical* task. The coordinator can override per call.
+ROUTING: do NOT add `model:` or `effort:` here. The routing table in COORDINATOR.md
+section 4 is the only place models are assigned, and the coordinator picks the tier per
+task at the `Agent` call -- haiku when the task is well scoped and easy, sonnet when it
+needs judgment. A character is a scope and a skill set, not a price tag.
 -->
 
 ## Scope
